@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>Demo</title>
+    <style type="text/css">
+        .black,.white {
+          position: relative;
+          padding: 12px 24px;
+          color: #fff;
+          border: 2px solid #fff;
+          transition: all .3s ease;
+          text-transform: uppercase;
+          text-decoration: none;
+        }
+        .black:before {
+          content: "";
+          position: absolute;
+          opacity: 0;
+          pointer-events: none;
+          left: 50%;
+          transform: translateX(-50%);
+          transition: all .3s ease;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 10px 10px 0 10px;
+          border-color: #282828 transparent transparent transparent;
+          top: 0;
+        }
+        .black:after {
+          text-transform: none;
+          content: attr(data-tooltip);
+          font-size: 14px;
+          position: absolute;
+          color: #fff;
+          background: #282828;
+          padding: 8px 12px;
+          width: -webkit-max-content;
+          width: -moz-max-content;
+          width: max-content;
+          max-width: 200px;
+          opacity: 0;
+          pointer-events: none;
+          left: 50%;
+          top: 0;
+          border-radius: 4px;
+          transform: translateX(-50%);
+          transition: all .3s ease;
+        }
+        .black:hover:before, .black:hover:after {
+          opacity: 1;
+        }
+        .black:hover:before {
+          top: -16px;
+        }
+        .black:hover:after {
+          top: -49px;
+        }
+        body{
+            background-color: #7d8e9d;
+        }
+        .wrapper{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .wrapper>a + a{
+            margin-left: 20px;
+        }
+
+        .white:after {
+            text-transform: none;
+            content: attr(data-tooltip);
+            font-size: 16px;
+            position: absolute;
+            padding: 8px 12px;
+            min-width: 110px;
+            opacity: 0;
+            pointer-events: none;
+            left: 50%;
+            top: 60px;
+            border-radius: 4px;
+            transform: translate3d(-50%, 0%, 0);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #d3d3d3;
+            background-color: #ffffff;
+            z-index: 1;
+            text-align: center;
+            color: #5a5a5a;
+        }
+        .white:before {
+            content: "";
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+            left: 50%;
+            transform: translate3d(-50%, 0%, 0) rotate(45deg);
+            width: 15px;
+            height: 15px;
+            box-shadow: -1px -1px 0px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #d3d3d3;
+            background-color: #fff;
+            z-index: 2;
+            border-width: 1px 0px 0 1px;
+            top: 53px;
+        }
+        .white:hover:before,
+        .white:hover:after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <a class="black" href="#" data-tooltip="It's Your Tooltip">hover me</a>
+         <a class="white" href="#" data-tooltip="It's Your Tooltip">hover me</a>
+    </div>
+</body>
+</html>
